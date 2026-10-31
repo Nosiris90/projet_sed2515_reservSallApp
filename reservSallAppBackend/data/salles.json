@@ -1,0 +1,42 @@
+[
+  {
+    "id": "B204",
+    "nom": "Salle B204",
+    "batiment": "B",
+    "capacite": 30,
+    "equipements": ["projecteur", "tableau blanc"],
+    "accessible": true
+  },
+  {
+    "id": "B301",
+    "nom": "Salle B301",
+    "batiment": "B",
+    "capacite": 50,
+    "equipements": ["projecteur", "visioconference"],
+    "accessible": true
+  },
+  {
+    "id": "L120",
+    "nom": "Laboratoire L120",
+    "batiment": "L",
+    "capacite": 25,
+    "equipements": ["ordinateurs", "projecteur"],
+    "accessible": true
+  },
+  {
+    "id": "C110",
+    "nom": "Salle C110",
+    "batiment": "C",
+    "capacite": 15,
+    "equipements": ["tableau blanc"],
+    "accessible": false
+  },
+  {
+    "id": "D205",
+    "nom": "Salle D205",
+    "batiment": "D",
+    "capacite": 40,
+    "equipements": ["projecteur", "microphone"],
+    "accessible": true
+  }
+]

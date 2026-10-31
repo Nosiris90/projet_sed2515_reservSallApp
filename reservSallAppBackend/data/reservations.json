@@ -1,0 +1,20 @@
+[
+  {
+    "id": 2,
+    "salleId": "L120",
+    "date": "2026-11-02",
+    "debut": "13:00",
+    "fin": "15:00",
+    "nom": "Yann",
+    "motif": "Présentation"
+  },
+  {
+    "id": 3,
+    "salleId": "B204",
+    "date": "2026-11-10",
+    "debut": "14:00",
+    "fin": "16:00",
+    "nom": "Nike Djateng",
+    "motif": "Réunion projet SED2515"
+  }
+]
