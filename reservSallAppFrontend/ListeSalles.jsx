@@ -1,7 +1,7 @@
 // Pourcentage de code écrit par moi-même : 40 %
 
 import { useState, useEffect } from "react";
-import { getSalles } from "../api";
+import { getSalles } from "./api.js";
 
 function ListeSalles({ onReserver }) {
   const [salles, setSalles] = useState([]);
@@ -22,22 +22,38 @@ function ListeSalles({ onReserver }) {
 
   // Garder seulement les salles qui respectent tous les filtres
   const sallesFiltrees = salles.filter((salle) => {
-    if (recherche !== "" && !salle.nom.toLowerCase().includes(recherche.toLowerCase())) return false;
-    if (capaciteMin !== "" && salle.capacite < Number(capaciteMin)) return false;
+    if (
+      recherche !== "" &&
+      !salle.nom.toLowerCase().includes(recherche.toLowerCase())
+    )
+      return false;
+    if (capaciteMin !== "" && salle.capacite < Number(capaciteMin))
+      return false;
     if (batiment !== "" && salle.batiment !== batiment) return false;
-    if (equipement !== "" && !salle.equipements.includes(equipement)) return false;
+    if (equipement !== "" && !salle.equipements.includes(equipement))
+      return false;
     return true;
   });
 
   return (
     <section>
       <h1>Trouver une salle</h1>
-      <p className="intro">Bienvenue ! Filtrez les salles selon votre besoin, puis cliquez sur « Réserver ».</p>
+      <p className="intro">
+        Bienvenue ! Filtrez les salles selon votre besoin, puis cliquez sur «
+        Réserver ».
+      </p>
 
       <div className="filtres">
-        <input placeholder="🔍 Rechercher une salle" value={recherche} onChange={(e) => setRecherche(e.target.value)} />
+        <input
+          placeholder="🔍 Rechercher une salle"
+          value={recherche}
+          onChange={(e) => setRecherche(e.target.value)}
+        />
 
-        <select value={capaciteMin} onChange={(e) => setCapaciteMin(e.target.value)}>
+        <select
+          value={capaciteMin}
+          onChange={(e) => setCapaciteMin(e.target.value)}
+        >
           <option value="">Toutes les capacités</option>
           <option value="10">10 places et +</option>
           <option value="20">20 places et +</option>
@@ -56,7 +72,10 @@ function ListeSalles({ onReserver }) {
           <option value="L">Bâtiment L</option>
         </select>
 
-        <select value={equipement} onChange={(e) => setEquipement(e.target.value)}>
+        <select
+          value={equipement}
+          onChange={(e) => setEquipement(e.target.value)}
+        >
           <option value="">Tous les équipements</option>
           <option value="projecteur">Projecteur</option>
           <option value="tableau blanc">Tableau blanc</option>
@@ -71,7 +90,9 @@ function ListeSalles({ onReserver }) {
       <p className="compteur">{sallesFiltrees.length} salle(s) trouvée(s)</p>
 
       {sallesFiltrees.length === 0 && erreur === "" && (
-        <p className="vide">Aucune salle ne correspond à ces filtres. Essayez d'en retirer un.</p>
+        <p className="vide">
+          Aucune salle ne correspond à ces filtres. Essayez d'en retirer un.
+        </p>
       )}
 
       <div className="grille">
@@ -82,7 +103,9 @@ function ListeSalles({ onReserver }) {
             <p>👥 {salle.capacite} places</p>
             <p>🛠️ {salle.equipements.join(", ")}</p>
             {salle.accessible && <p>♿ Accessible</p>}
-            <button className="bouton" onClick={() => onReserver(salle.id)}>Réserver</button>
+            <button className="bouton" onClick={() => onReserver(salle.id)}>
+              Réserver
+            </button>
           </div>
         ))}
       </div>

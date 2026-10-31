@@ -1,7 +1,7 @@
 // Pourcentage de code écrit par moi-même :  40%
 
 import { useState, useEffect } from "react";
-import { getReservations, getSalles, annulerReservation } from "../api";
+import { getReservations, getSalles, annulerReservation } from "./api.js";
 
 function MesReservations({ onAllerReserver }) {
   const [reservations, setReservations] = useState([]);
@@ -45,7 +45,9 @@ function MesReservations({ onAllerReserver }) {
         {reservations.length === 0 ? (
           <div className="vide">
             <p>📭 Vous n'avez pas encore de réservation.</p>
-            <button className="bouton" onClick={onAllerReserver}>Faire ma première réservation</button>
+            <button className="bouton" onClick={onAllerReserver}>
+              Faire ma première réservation
+            </button>
           </div>
         ) : (
           <ul className="liste">
@@ -57,7 +59,9 @@ function MesReservations({ onAllerReserver }) {
                   {r.date}, de {r.debut} à {r.fin}
                   {r.motif && <span className="motif"> — {r.motif}</span>}
                 </div>
-                <button className="annuler" onClick={() => annuler(r.id)}>Annuler</button>
+                <button className="annuler" onClick={() => annuler(r.id)}>
+                  Annuler
+                </button>
               </li>
             ))}
           </ul>

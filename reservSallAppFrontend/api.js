@@ -7,7 +7,7 @@
 
 import { sallesExemple, reservationsExemple } from "./donneesExemple";
 
-const MODE_DEMO = true;
+const MODE_DEMO = false; // true pour la démo, false pour le vrai backend
 const URL_API = "http://localhost:3001/api";
 
 // Copie des réservations d'exemple, modifiable pendant la démo
@@ -41,9 +41,10 @@ export async function creerReservation(reservation) {
         r.salleId === reservation.salleId &&
         r.date === reservation.date &&
         reservation.debut < r.fin &&
-        reservation.fin > r.debut
+        reservation.fin > r.debut,
     );
-    if (conflit) throw new Error("Cette salle est déjà réservée sur ce créneau.");
+    if (conflit)
+      throw new Error("Cette salle est déjà réservée sur ce créneau.");
 
     const nouvelle = { ...reservation, id: Date.now() };
     reservationsDemo = [...reservationsDemo, nouvelle];
@@ -57,7 +58,8 @@ export async function creerReservation(reservation) {
   });
   const donnees = await reponse.json();
   // 400 = donnée invalide, 409 = conflit : le backend envoie un message
-  if (!reponse.ok) throw new Error(donnees.message || "Erreur lors de la réservation.");
+  if (!reponse.ok)
+    throw new Error(donnees.message || "Erreur lors de la réservation.");
   return donnees;
 }
 
@@ -67,6 +69,8 @@ export async function annulerReservation(id) {
     return;
   }
 
-  const reponse = await fetch(URL_API + "/reservations/" + id, { method: "DELETE" });
+  const reponse = await fetch(URL_API + "/reservations/" + id, {
+    method: "DELETE",
+  });
   if (!reponse.ok) throw new Error("Impossible d'annuler la réservation.");
 }

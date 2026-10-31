@@ -1,8 +1,8 @@
 // Pourcentage de code écrit par moi-même : 50 %
 
 import { useState, useEffect } from "react";
-import { getSalles, creerReservation } from "../api";
-import { verifierReservation } from "../validation";
+import { getSalles, creerReservation } from "./api.js";
+import { verifierReservation } from "./validation.js";
 
 function FormulaireReservation({ salleInitiale }) {
   const [salles, setSalles] = useState([]);
@@ -36,7 +36,7 @@ function FormulaireReservation({ salleInitiale }) {
     // 2. Envoyer la réservation à l'API
     try {
       await creerReservation({ salleId, date, debut, fin, nom, motif });
-      setMessage("Votre réservation est enregistrée.");
+      setMessage("Votre réservation is enregistrée.");
       setSucces(true);
     } catch (e) {
       // Par exemple : la salle est déjà prise (erreur 409)
@@ -48,14 +48,25 @@ function FormulaireReservation({ salleInitiale }) {
   return (
     <section>
       <h1>Réserver une salle</h1>
-      <p className="intro">Réservez en 4 étapes : 📅 Date → 🕐 Heures → 🚪 Salle → ✅ Réserver</p>
+      <p className="intro">
+        Réservez en 4 étapes : 📅 Date → 🕐 Heures → 🚪 Salle → ✅ Réserver
+      </p>
 
       <div className="carte">
         <label htmlFor="date">📅 Date</label>
-        <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        <input
+          type="date"
+          id="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
 
         <label htmlFor="debut">🕐 Heure de début</label>
-        <select id="debut" value={debut} onChange={(e) => setDebut(e.target.value)}>
+        <select
+          id="debut"
+          value={debut}
+          onChange={(e) => setDebut(e.target.value)}
+        >
           <option value="">Choisir</option>
           <option>07:00</option>
           <option>08:00</option>
@@ -94,7 +105,11 @@ function FormulaireReservation({ salleInitiale }) {
         </select>
 
         <label htmlFor="salle">🚪 Salle</label>
-        <select id="salle" value={salleId} onChange={(e) => setSalleId(e.target.value)}>
+        <select
+          id="salle"
+          value={salleId}
+          onChange={(e) => setSalleId(e.target.value)}
+        >
           <option value="">Choisir</option>
           {salles.map((salle) => (
             <option key={salle.id} value={salle.id}>
@@ -107,11 +122,21 @@ function FormulaireReservation({ salleInitiale }) {
         <input id="nom" value={nom} onChange={(e) => setNom(e.target.value)} />
 
         <label htmlFor="motif">📝 Motif (facultatif)</label>
-        <input id="motif" value={motif} onChange={(e) => setMotif(e.target.value)} />
+        <input
+          id="motif"
+          value={motif}
+          onChange={(e) => setMotif(e.target.value)}
+        />
 
-        <button className="bouton" onClick={reserver}>Réserver</button>
+        <button className="bouton" onClick={reserver}>
+          Réserver
+        </button>
 
-        {message !== "" && <p className={succes ? "message succes" : "message erreur"}>{message}</p>}
+        {message !== "" && (
+          <p className={succes ? "message succes" : "message erreur"}>
+            {message}
+          </p>
+        )}
       </div>
     </section>
   );
