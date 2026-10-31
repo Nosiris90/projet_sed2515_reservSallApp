@@ -1,0 +1,217 @@
+/* Pourcentage de code écrit par moi-même : 60 % */
+
+/* En-tête et menu */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: white;
+  border-bottom: 1px solid #e3dcf5;
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 20px;
+  color: #4a148c;
+}
+
+.lien {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 12px;
+  font-size: 15px;
+  color: #555;
+  cursor: pointer;
+}
+
+.lien:hover,
+.lien.actif {
+  color: #6a11cb;
+  border-bottom-color: #6a11cb;
+}
+
+/* Contenu */
+.contenu {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #6a11cb;
+  margin-bottom: 6px;
+}
+
+.intro {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Filtres */
+.filtres {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.filtres input,
+.filtres select {
+  width: auto;
+  min-width: 180px;
+}
+
+.compteur {
+  color: #777;
+  font-size: 14px;
+}
+
+/* Grille des salles */
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  text-align: left;
+}
+
+.carte-salle {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.carte-salle h3 {
+  margin: 0 0 8px;
+  color: #2d1b69;
+}
+
+.carte-salle p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* Boîte blanche du formulaire et des listes */
+.carte {
+  background: white;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin: 12px 0 5px;
+  font-weight: bold;
+  color: #2575fc;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e3dcf5;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.bouton {
+  width: 100%;
+  margin-top: 16px;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: #6a11cb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.bouton:hover {
+  background: #4a148c;
+}
+
+/* Messages */
+.message {
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.succes {
+  color: #1b7a2f;
+  background: #d4f8dc;
+}
+
+.erreur {
+  color: #b00020;
+  background: #fde2e4;
+}
+
+.vide {
+  text-align: center;
+  color: #555;
+}
+
+/* Liste des réservations */
+.liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.liste li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e3dcf5;
+}
+
+.motif {
+  color: #777;
+}
+
+.annuler {
+  background: white;
+  color: #b00020;
+  border: 1px solid #b00020;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* Page d'aide */
+.aide h3 {
+  color: #2d1b69;
+  margin-bottom: 4px;
+}
+
+.aide p {
+  margin-top: 0;
+}
+
+/* Téléphone */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .filtres input,
+  .filtres select {
+    width: 100%;
+  }
+}
