@@ -16,5 +16,14 @@
     "fin": "16:00",
     "nom": "Nike Djateng",
     "motif": "Réunion projet SED2515"
+  },
+  {
+    "id": 3,
+    "salleId": "B204",
+    "date": "2026-10-31",
+    "debut": "19:00",
+    "fin": "20:00",
+    "nom": "Nike",
+    "motif": "Location"
   }
 ]
